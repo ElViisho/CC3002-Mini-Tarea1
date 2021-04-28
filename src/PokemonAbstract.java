@@ -22,4 +22,12 @@ public abstract class PokemonAbstract implements PokemonInterface{
     public void setLife(int newLife){
         this.life = newLife;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
