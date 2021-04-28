@@ -3,7 +3,8 @@
 // the current ones are
 
 public interface PokemonInterface {
-    public void attack(PokemonAbstract Pokemon);    // Used when this pokemon attacks another
+    //Used when this pokemon attacks another
+    public int attack(PokemonAbstract Pokemon);
     //Used by attack() method, for calling when getting attacked
     public int AttackedByPlant(Plant plant);
     public int AttackedByFire(Fire fire);

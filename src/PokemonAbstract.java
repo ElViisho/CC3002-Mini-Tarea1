@@ -21,13 +21,21 @@ public abstract class PokemonAbstract implements PokemonInterface{
     //Set the life equal to the new quantity
     public void setLife(int newLife){
         this.life = newLife;
+        if (this.life < 0) this.life = 0;
     }
 
+    //Get the nickname of the Pokemon
     public String getName() {
         return name;
     }
 
+    //Set a new nickname for the Pokemon
     public void setName(String name) {
         this.name = name;
+    }
+
+    //To check if current Pokemon is alive or not
+    public boolean isAlive(){
+        return life > 0;
     }
 }

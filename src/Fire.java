@@ -6,10 +6,11 @@ public class Fire extends PokemonAbstract{
     }
 
     @Override
-    public void attack(PokemonAbstract otherPokemon){
+    public int attack(PokemonAbstract otherPokemon){
         int damage = otherPokemon.AttackedByFire(this);
         int newLife = otherPokemon.getLife() - damage;
         otherPokemon.setLife(newLife);
+        return damage;
     }
 
     @Override

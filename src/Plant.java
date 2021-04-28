@@ -6,10 +6,11 @@ public class Plant extends PokemonAbstract{
     }
 
     @Override
-    public void attack(PokemonAbstract otherPokemon){
+    public int attack(PokemonAbstract otherPokemon){
         int damage = otherPokemon.AttackedByPlant(this);
         int newLife = otherPokemon.getLife() - damage;
         otherPokemon.setLife(newLife);
+        return damage;
     }
 
     @Override
