@@ -1,12 +1,15 @@
+//The class from which the plant-type pokemon will be created
+
 public class Plant extends PokemonAbstract{
     public Plant(String name, String species, int life){
         super(name, species, life);
     }
 
     @Override
-    public void attack(PokemonAbstract otroPokemon){
-        var damage = otroPokemon.AttackedByPlant(this);
-        otroPokemon.setLife(damage);
+    public void attack(PokemonAbstract otherPokemon){
+        int damage = otherPokemon.AttackedByPlant(this);
+        int newLife = otherPokemon.getLife() - damage;
+        otherPokemon.setLife(newLife);
     }
 
     @Override
