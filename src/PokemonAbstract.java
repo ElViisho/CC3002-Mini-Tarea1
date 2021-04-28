@@ -1,19 +1,19 @@
 public abstract class PokemonAbstract implements PokemonInterface{
-    private String nombre;
-    private String especie;
-    private int vida;
+    private String name;
+    private String species;
+    private int life;
 
-    protected PokemonAbstract(String nombre, String especie, int vida) {
-        this.nombre = nombre;
-        this.especie = especie;
-        this.vida = vida;
+    protected PokemonAbstract(String name, String species, int life) {
+        this.name = name;
+        this.species = species;
+        this.life = life;
     }
 
-    public int getVida(){
-        return vida;
+    public int getLife(){
+        return life;
     }
 
-    public void setVida(int damage){
-        this.vida -= damage;
+    public void setLife(int damage){
+        this.life -= damage;
     }
 }

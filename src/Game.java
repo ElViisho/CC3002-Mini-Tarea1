@@ -1,20 +1,17 @@
 public class Game {
     public static void main(String[] args){
-        Planta planta = new Planta("volbasor", "Bulbasaur", 20);
-        Fuego fuego = new Fuego("sharly","Charmander", 20);
-        Agua agua = new Agua("escuart", "Squirtle", 20);
+        Plant plant = new Plant("volbasor", "Bulbasaur", 20);
+        Fire fire = new Fire("sharly","Charmander", 20);
+        Water water = new Water("escuart", "Squirtle", 20);
 
-        int damage = planta.pelea(fuego);
-        fuego.setVida(damage);
-        System.out.println(fuego.getVida());
+        plant.attack(fire);
+        System.out.println(fire.getLife());
 
-        damage = fuego.pelea(agua);
-        agua.setVida(damage);
-        System.out.println(agua.getVida());
+        fire.attack(water);
+        System.out.println(water.getLife());
 
-        damage = agua.pelea(planta);
-        planta.setVida(damage);
-        System.out.println(planta.getVida());
+        water.attack(plant);
+        System.out.println(plant.getLife());
     }
 
 }
