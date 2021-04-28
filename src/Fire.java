@@ -6,6 +6,7 @@ public class Fire extends PokemonAbstract{
     }
 
     @Override
+    //The attack method calls the other's pokemon method of getting attacked by this type
     public int attack(PokemonAbstract otherPokemon){
         int damage = otherPokemon.AttackedByFire(this);
         int newLife = otherPokemon.getLife() - damage;
@@ -14,14 +15,17 @@ public class Fire extends PokemonAbstract{
     }
 
     @Override
+    //Fire resists Plant
     public int AttackedByPlant(Plant plant){
         return 5;
     }
     @Override
+    //Fire resists Fire
     public int AttackedByFire(Fire fire){
         return 5;
     }
     @Override
+    //Fire is weak to Water
     public int AttackedByWater(Water water){
         return 10;
     }

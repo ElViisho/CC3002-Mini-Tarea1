@@ -5,6 +5,7 @@ import java.util.*;
 public class Game {
     public static void main(String[] args){
         boolean playing = true;
+        //While user wants to keep playing
         while (playing){
             //Create the list of different Pokemon to select
             PokemonAbstract PokemonList[] = new PokemonAbstract[3];
@@ -57,6 +58,7 @@ public class Game {
             }
             var Opponent = PokemonList[selection];
 
+            //Start battle
             System.out.println("\nA wild " + Opponent.getName() + " appeared!");
             System.out.println("Go " + Pokemon.getName() + "!");
             sc.nextLine();
@@ -64,6 +66,7 @@ public class Game {
             //While both Pokemon are still alive, continue battling
             while (Pokemon.isAlive()){
                 System.out.println(Pokemon.getName() + " HP: " + Pokemon.getLife() + " vs " + Opponent.getName() + " HP: " + Opponent.getLife());
+                //Wait for input from user to continue
                 System.out.println("Press enter to attack");
                 sc.nextLine();
                 int damage = Pokemon.attack(Opponent);
@@ -73,7 +76,7 @@ public class Game {
                 System.out.println("Wild " + Opponent.getName() + " attacks and deals " + damage + " damage to " + Pokemon.getName() + "!");
             }
 
-            //After one of them dies
+            //After one of them dies, end battle
             if (!Pokemon.isAlive()){
                 System.out.println(Pokemon.getName() + " is freaking dead dude! Take better care of your pets :c");
             }
@@ -81,6 +84,7 @@ public class Game {
                 System.out.println("Yay! You killed " + Opponent.getName() + " brutally!");
             }
 
+            //After battle ends, ask if user wants to continue playing
             System.out.println("\nWanna play again? (Y/N)");
             String play = sc.next();
             if (!(play.equals("Y") || play.equals("y"))){
@@ -89,7 +93,6 @@ public class Game {
         }
 
         System.out.println("Thanks for playing!");
-
+        //End of program
     }
-
 }

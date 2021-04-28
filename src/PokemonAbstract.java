@@ -1,5 +1,5 @@
 // The abstract class that implements the interface and
-// is the base for each of the types that will be later implemented
+// is the base for each of the types of Pokemon
 
 public abstract class PokemonAbstract implements PokemonInterface{
     private String name;        //The name of the Pokemon (determined by player)
@@ -19,7 +19,7 @@ public abstract class PokemonAbstract implements PokemonInterface{
     }
 
     //Set the life equal to the new quantity
-    public void setLife(int newLife){
+    protected void setLife(int newLife){
         this.life = newLife;
         if (this.life < 0) this.life = 0;
     }
