@@ -1,7 +1,7 @@
-// Interface to be implemented by the different pokemon types
-// If more types are added, they just have to be declared here in the way
-// the current ones are
-
+/**
+ * Interface to be implemented by the different pokemon types
+ * which has the different methods that will be later implemented by them
+ */
 public interface PokemonInterface {
     //Used when this pokemon attacks another
     public int attack(PokemonAbstract Pokemon);
