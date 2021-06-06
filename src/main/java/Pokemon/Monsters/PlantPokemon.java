@@ -50,6 +50,8 @@ public class PlantPokemon extends AbstractPokemon {
         int damage = otherPokemon.AttackedByPlant(this);
         int newLife = otherPokemon.getHp() - damage;
         otherPokemon.setHp(newLife);
+        System.out.println(this.getName() + " the " + this.getSpecies() + " attacks " + otherPokemon.getName() + " the " + otherPokemon.getSpecies());
+        System.out.println("The attack did " + damage + " damage, leaving " + otherPokemon.getName() + " with " + otherPokemon.getHp() + " HP.");
         return damage;
     }
 

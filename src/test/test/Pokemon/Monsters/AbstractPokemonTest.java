@@ -18,7 +18,7 @@ public abstract class AbstractPokemonTest {
 
     private int seed;
     private int strSize;
-    private Random rng;
+    protected Random rng;
 
     protected void InitParams(){
         seed = new Random().nextInt();
@@ -160,4 +160,43 @@ public abstract class AbstractPokemonTest {
         factory.setMaxHp(maxHp);
         factory.setMaxPp(maxPp);
     }
+
+    protected PlantPokemon createPlant(){
+        var PlantFactory = new PlantPokemonFactory();
+        PlantFactory.setName("Jaime");
+        PlantFactory.setSpecies("Bulbasaur");
+        PlantFactory.setMaxHp(rng.nextInt(50));
+        PlantFactory.setMaxPp(rng.nextInt(50));
+
+        return PlantFactory.make();
+    }
+
+    protected FirePokemon createFire(){
+        var FireFactory = new FirePokemonFactory();
+        FireFactory.setName("Charlie");
+        FireFactory.setSpecies("Charmander");
+        FireFactory.setMaxHp(rng.nextInt(50));
+        FireFactory.setMaxPp(rng.nextInt(50));
+
+        return FireFactory.make();
+    }
+
+    protected WaterPokemon createWater(){
+        var WaterFactory = new WaterPokemonFactory();
+        WaterFactory.setName("Tortuguita");
+        WaterFactory.setSpecies("Squirtle");
+        WaterFactory.setMaxHp(rng.nextInt(50));
+        WaterFactory.setMaxPp(rng.nextInt(50));
+
+        return WaterFactory.make();
+    }
+
+    protected void checkHp(AbstractPokemon pokemon){
+        pokemon.setHp(0);
+        assertFalse(pokemon.isAlive());
+        pokemon.setHp(maxHp + 100);
+        assertEquals(pokemon.getMaxHp(), pokemon.getHp());
+        assertTrue(pokemon.isAlive());
+    }
+
 }
