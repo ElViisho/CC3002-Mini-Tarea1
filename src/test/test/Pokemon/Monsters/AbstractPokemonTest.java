@@ -17,12 +17,13 @@ public abstract class AbstractPokemonTest {
     protected int maxPp;
 
     private int seed;
+    private int strSize;
     private Random rng;
 
     protected void InitParams(){
         seed = new Random().nextInt();
         rng = new Random(seed);
-        int strSize = rng.nextInt(20);
+        strSize = rng.nextInt(20);
         name = randomAlphanumeric(strSize);
         strSize = rng.nextInt(20);
         species = randomAlphanumeric(strSize);
@@ -35,6 +36,40 @@ public abstract class AbstractPokemonTest {
         FirePokemon newPoke = factory.make();
         assertEquals(pokemon, newPoke);
         assertEquals(pokemon.hashCode(), newPoke.hashCode());
+
+        String differentName;
+        do {
+            strSize = rng.nextInt(20);
+            differentName = randomAlphanumeric(strSize);
+        } while (differentName.equals(name));
+        setUpFactory(factory, differentName, species, maxHp, maxPp);
+        newPoke = factory.make();
+        assertNotEquals(pokemon, newPoke);
+
+        String differentSpecies;
+        do {
+            strSize = rng.nextInt(20);
+            differentSpecies = randomAlphanumeric(strSize);
+        } while (differentSpecies.equals(name));
+        setUpFactory(factory, name, differentSpecies, maxHp, maxPp);
+        newPoke = factory.make();
+        assertNotEquals(pokemon, newPoke);
+
+        int differentHp;
+        do {
+            differentHp = rng.nextInt();
+        } while (differentHp == maxHp);
+        setUpFactory(factory, name, species, differentHp, maxPp);
+        newPoke = factory.make();
+        assertNotEquals(pokemon, newPoke);
+
+        int differentPp;
+        do {
+            differentPp = rng.nextInt();
+        } while (differentPp == maxPp);
+        setUpFactory(factory, name, species, maxHp, differentPp);
+        newPoke = factory.make();
+        assertNotEquals(pokemon, newPoke);
     }
 
     public void checkWaterConstructor(WaterPokemonFactory factory, WaterPokemon pokemon){
@@ -42,6 +77,40 @@ public abstract class AbstractPokemonTest {
         WaterPokemon newPoke = factory.make();
         assertEquals(pokemon, newPoke);
         assertEquals(pokemon.hashCode(), newPoke.hashCode());
+
+        String differentName;
+        do {
+            strSize = rng.nextInt(20);
+            differentName = randomAlphanumeric(strSize);
+        } while (differentName.equals(name));
+        setUpFactory(factory, differentName, species, maxHp, maxPp);
+        newPoke = factory.make();
+        assertNotEquals(pokemon, newPoke);
+
+        String differentSpecies;
+        do {
+            strSize = rng.nextInt(20);
+            differentSpecies = randomAlphanumeric(strSize);
+        } while (differentSpecies.equals(name));
+        setUpFactory(factory, name, differentSpecies, maxHp, maxPp);
+        newPoke = factory.make();
+        assertNotEquals(pokemon, newPoke);
+
+        int differentHp;
+        do {
+            differentHp = rng.nextInt();
+        } while (differentHp == maxHp);
+        setUpFactory(factory, name, species, differentHp, maxPp);
+        newPoke = factory.make();
+        assertNotEquals(pokemon, newPoke);
+
+        int differentPp;
+        do {
+            differentPp = rng.nextInt();
+        } while (differentPp == maxPp);
+        setUpFactory(factory, name, species, maxHp, differentPp);
+        newPoke = factory.make();
+        assertNotEquals(pokemon, newPoke);
     }
 
     public void checkPlantConstructor(PlantPokemonFactory factory, PlantPokemon pokemon){
@@ -49,6 +118,40 @@ public abstract class AbstractPokemonTest {
         PlantPokemon newPoke = factory.make();
         assertEquals(pokemon, newPoke);
         assertEquals(pokemon.hashCode(), newPoke.hashCode());
+
+        String differentName;
+        do {
+            strSize = rng.nextInt(20);
+            differentName = randomAlphanumeric(strSize);
+        } while (differentName.equals(name));
+        setUpFactory(factory, differentName, species, maxHp, maxPp);
+        newPoke = factory.make();
+        assertNotEquals(pokemon, newPoke);
+
+        String differentSpecies;
+        do {
+            strSize = rng.nextInt(20);
+            differentSpecies = randomAlphanumeric(strSize);
+        } while (differentSpecies.equals(name));
+        setUpFactory(factory, name, differentSpecies, maxHp, maxPp);
+        newPoke = factory.make();
+        assertNotEquals(pokemon, newPoke);
+
+        int differentHp;
+        do {
+            differentHp = rng.nextInt();
+        } while (differentHp == maxHp);
+        setUpFactory(factory, name, species, differentHp, maxPp);
+        newPoke = factory.make();
+        assertNotEquals(pokemon, newPoke);
+
+        int differentPp;
+        do {
+            differentPp = rng.nextInt();
+        } while (differentPp == maxPp);
+        setUpFactory(factory, name, species, maxHp, differentPp);
+        newPoke = factory.make();
+        assertNotEquals(pokemon, newPoke);
     }
 
     private void setUpFactory(AbstractPokemonFactory factory, String name, String species, int maxHp, int maxPp){
