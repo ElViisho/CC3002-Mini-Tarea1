@@ -39,7 +39,7 @@ public abstract class AbstractPokemon implements PokemonInterface{
      * Method for setting the hp of the Pokemon to a new value
      * @param hp The new value for the hp
      */
-    protected void setHp(int hp){
+    public void setHp(int hp){
         this.hp = hp;
         if (this.hp < 0) this.hp = 0;
         if (this.hp > this.getMaxHp()) this.hp = getMaxHp();
@@ -63,7 +63,7 @@ public abstract class AbstractPokemon implements PokemonInterface{
      * Method for setting the pp of the Pokemon to a new value
      * @param pp The new value for the pp
      */
-    protected void setPp(int pp) {
+    public void setPp(int pp) {
         this.pp = pp;
         if (this.pp < 0) this.pp = 0;
         if (this.pp > this.getMaxPp()) this.pp = getMaxPp();
@@ -72,7 +72,7 @@ public abstract class AbstractPokemon implements PokemonInterface{
     /**
      * @return Gets the max pp a the Pokemon can have
      */
-    protected int getMaxPp() {
+    public int getMaxPp() {
         return maxPp;
     }
 
